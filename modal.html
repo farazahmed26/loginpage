@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: tahoma;
+            transition: all .2s linear;
+            text-transform: capitalize;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100vw;
+            background: url(bg1.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        #open{
+            height: 50px;
+            width: 180px;
+            background: #fff;
+            color: #333;
+            font-size: 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            outline: none;
+            border: none;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        }
+        #open:hover{
+            letter-spacing: 4px;
+            opacity: .8;
+        }
+        .model-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .3);
+            transform: scale(0);
+        }
+        .model-container .model{
+            height: 560px;
+            max-width: 375px;
+            margin: 0 10px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            text-align: center;
+            position: relative; 
+        }
+        .model-container .model .fa-heart{
+            font-size: 100px;
+            color: #f9ca24;
+            padding-bottom: 50px;
+            margin: 10px 0;
+            text-shadow: 0 3px 5px rgba(0, 0, 0, .3),
+                            35px 30px #ccc,
+                            -35px 30px #333;
+
+        }
+        .model-container .model h3{
+            color: #333;
+            font-size: 25px;
+        }
+        .model-container .model p{
+            color: #666;
+            margin: 20px 0;
+        }
+        .model-container .model button{
+            height: 35px;
+            width: 120px;
+            background: #333;
+            color: #fff;
+            outline: none;
+            border: none;
+            border-radius: 50px;
+            font-size: 17px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+        }
+        .model-container .model button:hover{
+            opacity: .8;
+        }
+        .model-container .model .fa-times{
+            position: absolute;
+            top: 115px; right: 15px;
+            font-size: 25px;
+            cursor: pointer;
+            color: #333;
+        }
+        body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+.box {
+    width: 380px;
+    height: 500px;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    padding: 35px;
+    margin: -30% auto 0;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.box img {
+    width: 100px;
+    margin-top: -50px;
+}
+
+.header {
+    width: 300px;
+    height: 50px;
+    text-transform: uppercase;
+    display: inline-flex;
+    padding-top: 20px;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+.header a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    display: inline-flex;
+    padding-left: 25px;
+    padding-right: 25px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.header .active {
+    color: #df80ff;
+    font-weight: bold;
+    position: relative;
+}
+
+.header .active:after {
+    position: absolute;
+    border: none;
+    content: "";
+}
+
+#errorMsg {
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 20px;
+
+}
+
+.content {
+    display: inline-flex;
+    overflow: hidden;
+}
+
+form {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    flex-direction: column;
+    transition: right 0.5s;
+}
+
+.login a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.extend form {
+    right: 100%;
+}
+
+input[type=text],
+input[type=password],
+input[type=email] {
+    display: block;
+    position: relative;
+    border: 4px solid #ffffff;
+    padding: 12px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 17px;
+    outline: none;
+}
+
+input[type=text]:hover,
+input[type=password]:hover,
+input[type=email]:hover {
+    border: 4px solid #df80ff;
+
+}
+
+input[type=submit] {
+    display: block;
+    position: relative;
+    border: 3px solid #df80ff;
+    padding: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 25px;
+    background-color: #600080;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type=submit]:hover {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+}
+
+input[type=checkbox] {
+    background-color: #df80ff;
+}
+
+#check {
+    margin-top: 10px;
+    text-align: left;
+    color: black;
+    font-size: 15px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="open">Click Me</button>
+    </div>
+
+    <div class="model-container">
+        <div class="model">
+            <div class="box">
+            <i class="fas fa-heart"></i>
+            <h3>Login/Signup</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div class="page">
+            <div class="header">
+                <a id="login" class="active" href="#login">login</a>
+                <a id="signup" href="#signup">signup</a>
+            </div>
+            <div id="errorMsg"></div>
+            <div class="content">
+            <form class="login" name="loginForm" onsubmit="return validateLoginForm()" method="POST">
+                <input type="text" name="name" id="logName" placeholder="Username">
+                <input type="password" name="password" id="logPassword" placeholder="Password">
+                <div id="check">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <br>
+                <input type="submit" value="Login">
+                <a href="#">Forgot Password?</a>
+            </form>
+            <form class="signup" name="signupForm" onsubmit="return validateSignupForm()" method="POST">
+                <input type="email" name="email" id="signEmail" placeholder="Email">
+                <input type="text" name="name" id="signName" placeholder="Username">
+                <input type="password" name="password" id="signPassword" placeholder="Password"><br>
+                <input type="submit" value="SignUp">
+            </form>
+        </div>
+        <i id="close" class="fas fa-times"></i>
+    </div>
+</div>
+</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $("#open").click(function(){
+             $(".model-container").css("transform","scale(1)");
+        });
+        
+           $("#close").click(function(){
+             $(".model-container").css("transform","scale(0)");
+        });
+
+        });
+        $(window).on("hashchange", function () {
+            if (location.hash.slice(1) == "signup") {
+                $(".page").addClass("extend");
+                $("#login").removeClass("active");
+                $("#signup").addClass("active");
+            } else {
+                $(".page").removeClass("extend");
+                $("#login").addClass("active");
+                $("#signup").removeClass("active");
+            }
+        });
+        $(window).trigger("hashchange");
+
+        function validateLoginForm() {
+            var name = document.getElementById("logName").value;
+            var password = document.getElementById("logPassword").value;
+
+            if (name == "" || password == "") {
+                document.getElementById("errorMsg").innerHTML = "Please fill the required fields"
+                return false;
+            }
+
+            else if (password.length < 8) {
+                document.getElementById("errorMsg").innerHTML = "Your password must include atleast 8 characters"
+                return false;
+            }
+            else {
+                alert("Successfully logged in");
+                return true;
+            }
+        }
+        function validateSignupForm() {
+            var mail = document.getElementById("signEmail").value;
+            var name = document.getElementById("signName").value;
+            var password = document.getElementById("signPassword").value;
+
+            if (mail == "" || name == "" || password == "") {
+                document.getElementById("errorMsg").innerHTML = "Please fill the required fields"
+                return false;
+            }
+
+            else if (password.length < 8) {
+                document.getElementById("errorMsg").innerHTML = "Your password must include atleast 8 characters"
+                return false;
+            }
+            else {
+                alert("Successfully signed up");
+                return true;
+            }
+        }
+    </script>
+    
+</body>
+</html>
